@@ -18,9 +18,15 @@
       <section class="items">
         <h4>Pick your items</h4>
 
-        <div v-for="product in products" class="product">
-          <div class="photo">
-            <img :src="product.photo" />
+        <div 
+            v-for="product in products"
+            class="product"     
+            @click="product.active = !product.active"
+            v-bind:class="{ selected : product.active }"
+        >
+          
+            <div class="photo">
+            <img v-bind:src="product.photo" />
           </div>
 
           <div class="description">
