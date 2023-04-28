@@ -44,7 +44,7 @@
         </div>
       </section>
 
-      <section class="summary">
+      <section class="summary" v-if="total()>0">
         <strong>Order Details</strong>
         <table>
           <thead>
@@ -60,14 +60,14 @@
                   {{ product.quantity + ' x ' + product.name }}
                 </td>
                 <td>
-                  {{ (product.quantity*product.price).toFixed(2) }}
+                  $ {{ (product.quantity*product.price).toFixed(2) }}
                 </td>
               </template>
             </tr>
 
             <tr>
               <th>Total</th>
-              <th>5.99</th>
+              <th>$ {{ total() }}</th>
             </tr>
           </tbody>
         </table>
